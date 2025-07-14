@@ -1,0 +1,17 @@
+package com.example.CRUDOPs.dto.response;
+
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
+
+@Builder
+@Getter
+@Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserDeletionResponseBody {
+    private String message;
+}
