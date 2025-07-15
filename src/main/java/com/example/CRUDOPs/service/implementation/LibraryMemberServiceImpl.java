@@ -3,8 +3,8 @@ package com.example.CRUDOPs.service.implementation;
 import com.example.CRUDOPs.Entity.LibraryMember;
 import com.example.CRUDOPs.dao.LibraryMemberDao;
 import com.example.CRUDOPs.dto.LibraryMemberDTO;
-import com.example.CRUDOPs.dto.request.UserAddRequestBody;
-import com.example.CRUDOPs.dto.request.UserUpdateRequestBody;
+import com.example.CRUDOPs.dto.request.LibraryMemberAddRequestBody;
+import com.example.CRUDOPs.dto.request.LibraryMemberUpdateRequestBody;
 import com.example.CRUDOPs.dto.response.*;
 import com.example.CRUDOPs.service.LibraryMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +43,8 @@ public class LibraryMemberServiceImpl implements LibraryMemberService {
     }
 
     @Override
-    public LibraryMemberAddResponseBody addMember(UserAddRequestBody userAddRequestBody){
-        LibraryMember newMember = mapToLibraryMember(userAddRequestBody);
+    public LibraryMemberAddResponseBody addMember(LibraryMemberAddRequestBody libraryMemberAddRequestBody){
+        LibraryMember newMember = mapToLibraryMember(libraryMemberAddRequestBody);
         libraryMemberDao.save(newMember);
         LibraryMemberAddResponseBody libraryMemberAddResponseBody = new LibraryMemberAddResponseBody();
         libraryMemberAddResponseBody.setMessage("User added successfully.");
@@ -52,10 +52,10 @@ public class LibraryMemberServiceImpl implements LibraryMemberService {
     }
 
 
-    private LibraryMember mapToLibraryMember(UserAddRequestBody userAddRequestBody){
+    private LibraryMember mapToLibraryMember(LibraryMemberAddRequestBody libraryMemberAddRequestBody){
         LibraryMember newMember = new LibraryMember();
-        newMember.setName(userAddRequestBody.getUser().getName());
-        newMember.setContactNumber(userAddRequestBody.getUser().getContactNumber());
+        newMember.setName(libraryMemberAddRequestBody.getUser().getName());
+        newMember.setContactNumber(libraryMemberAddRequestBody.getUser().getContactNumber());
         return newMember;
     }
 
@@ -67,13 +67,13 @@ public class LibraryMemberServiceImpl implements LibraryMemberService {
         return libraryMemberDeletionResponseBody;
     }
 
-    public LibraryMemberUpdateResponseBody updateUser(UserUpdateRequestBody userUpdateRequestBody){
-        String id = userUpdateRequestBody.getUserDetailsUpdate().getId();
+    public LibraryMemberUpdateResponseBody updateUser(LibraryMemberUpdateRequestBody libraryMemberUpdateRequestBody){
+        String id = libraryMemberUpdateRequestBody.getUserDetailsUpdate().getId();
         Optional<LibraryMember> existingLibraryMemberOptional = libraryMemberDao.findById(id);
         if(existingLibraryMemberOptional.isPresent()){
             LibraryMember existingLibraryMember = existingLibraryMemberOptional.get();
-            existingLibraryMember.setName(userUpdateRequestBody.getUserDetailsUpdate().getName());
-            existingLibraryMember.setContactNumber(userUpdateRequestBody.getUserDetailsUpdate().getContactNumber());
+            existingLibraryMember.setName(libraryMemberUpdateRequestBody.getUserDetailsUpdate().getName());
+            existingLibraryMember.setContactNumber(libraryMemberUpdateRequestBody.getUserDetailsUpdate().getContactNumber());
             libraryMemberDao.save(existingLibraryMember);
 
             LibraryMemberUpdateResponseBody updateResponseBody = new LibraryMemberUpdateResponseBody();

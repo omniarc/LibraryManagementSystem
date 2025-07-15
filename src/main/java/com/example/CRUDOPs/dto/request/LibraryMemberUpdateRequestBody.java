@@ -9,6 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class UserUpdateRequestBody {
+public class LibraryMemberUpdateRequestBody {
     private LibraryMemberDTO userDetailsUpdate;
 }

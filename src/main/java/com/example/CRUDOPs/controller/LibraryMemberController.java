@@ -1,8 +1,8 @@
 package com.example.CRUDOPs.controller;
 
 
-import com.example.CRUDOPs.dto.request.UserAddRequestBody;
-import com.example.CRUDOPs.dto.request.UserUpdateRequestBody;
+import com.example.CRUDOPs.dto.request.LibraryMemberAddRequestBody;
+import com.example.CRUDOPs.dto.request.LibraryMemberUpdateRequestBody;
 import com.example.CRUDOPs.dto.response.*;
 import com.example.CRUDOPs.service.LibraryMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +20,8 @@ public class LibraryMemberController {
     }
 
     @PostMapping("addMember")
-    public LibraryMemberAddResponseBody addUser(@RequestBody UserAddRequestBody userAddRequestBody){
-        return libraryMemberService.addMember(userAddRequestBody);
+    public LibraryMemberAddResponseBody addUser(@RequestBody LibraryMemberAddRequestBody libraryMemberAddRequestBody){
+        return libraryMemberService.addMember(libraryMemberAddRequestBody);
     }
 
     @DeleteMapping("deleteUser/{id}")
@@ -30,8 +30,8 @@ public class LibraryMemberController {
     }
 
     @PostMapping("update")
-    public LibraryMemberUpdateResponseBody updateUser(@RequestBody UserUpdateRequestBody userUpdateRequestBody){
-        return libraryMemberService.updateUser(userUpdateRequestBody);
+    public LibraryMemberUpdateResponseBody updateUser(@RequestBody LibraryMemberUpdateRequestBody libraryMemberUpdateRequestBody){
+        return libraryMemberService.updateUser(libraryMemberUpdateRequestBody);
     }
 
     @GetMapping("fetch/{id}")

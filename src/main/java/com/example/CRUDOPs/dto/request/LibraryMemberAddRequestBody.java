@@ -8,6 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class UserAddRequestBody {
+public class LibraryMemberAddRequestBody {
     private LibraryMemberDTO user;
 }

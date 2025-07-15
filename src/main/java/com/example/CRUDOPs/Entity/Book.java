@@ -27,9 +27,9 @@ public class Book {
     //@Builder.Default
     private boolean isBorrowed;
 
-//    @OneToOne(targetEntity = BorrowHistory.class)
-//    @JoinColumn(name = "id", referencedColumnName = "book_id")
-//    private BorrowHistory borrowHistory;
+    @OneToOne(targetEntity = BorrowHistory.class)
+    @JoinColumn(name = "id", referencedColumnName = "book_id")
+    private BorrowHistory borrowHistory;
 
     @ManyToOne(targetEntity = LibraryMember.class)
     @JoinColumn(name = "library_member_id", referencedColumnName = "id")
