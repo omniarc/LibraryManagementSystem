@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MemberDao extends JpaRepository<LibraryMember, String> {
+public interface LibraryMemberDao extends JpaRepository<LibraryMember, String> {
 }
