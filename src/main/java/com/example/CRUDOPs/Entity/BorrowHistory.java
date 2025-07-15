@@ -8,7 +8,7 @@ import lombok.Data;
 @Entity
 @Table(name = "borrow_history")
 
-public class BorrowHistory {
+public class BorrowHistory extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")

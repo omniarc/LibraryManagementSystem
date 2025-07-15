@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "library_member")
-public class LibraryMember {
+public class LibraryMember extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
@@ -19,6 +19,7 @@ public class LibraryMember {
     private String contactNumber;
 
     @OneToOne(mappedBy = "libraryMember", targetEntity = AddressDetails.class)
+    @PrimaryKeyJoinColumn
     private AddressDetails addressDetails;
 
     @OneToMany(mappedBy = "libraryMember", targetEntity = Book.class)

@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddressDetails {
+public class AddressDetails extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
@@ -31,6 +31,7 @@ public class AddressDetails {
 
 
     @OneToOne(targetEntity = LibraryMember.class)
+    @MapsId
     @JoinColumn(name = "library_member_id", referencedColumnName = "id")
     private LibraryMember libraryMember;
 }

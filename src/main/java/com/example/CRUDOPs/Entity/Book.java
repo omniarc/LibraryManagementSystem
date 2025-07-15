@@ -10,7 +10,7 @@ import lombok.Data;
 //@Builder
 @Table(name = "book")
 
-public class Book {
+public class Book extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
