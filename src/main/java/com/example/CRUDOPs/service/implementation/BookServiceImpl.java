@@ -91,5 +91,26 @@ public class BookServiceImpl implements BookService {
             return failedUpdateResponse;
         }
    }
+
+   public BookFetchResponseBody fetchBook(String id){
+        Optional<Book> existingBookOptional = bookDao.findById(id);
+        if(existingBookOptional.isPresent()){
+            Book book = existingBookOptional.get();
+            BookDTO bookDTO = new BookDTO();
+            bookDTO.setId(book.getId());
+            bookDTO.setTitle(book.getTitle());
+            bookDTO.setAuthor(book.getAuthor());
+            bookDTO.setPublishedYear(book.getPublishedYear());
+            bookDTO.setGenre(book.getGenre());
+
+            BookFetchResponseBody bookFetchResponseBody = new BookFetchResponseBody();
+            bookFetchResponseBody.setBook(bookDTO);
+            return bookFetchResponseBody;
+        } else {
+            BookFetchResponseBody failedFetch = new BookFetchResponseBody();
+            failedFetch.setMessage("Fetch failed since the ID does not exist.");
+            return failedFetch;
+        }
+   }
 }
 

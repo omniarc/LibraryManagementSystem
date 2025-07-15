@@ -5,10 +5,7 @@ import com.example.CRUDOPs.dao.MemberDao;
 import com.example.CRUDOPs.dto.LibraryMemberDTO;
 import com.example.CRUDOPs.dto.request.UserAddRequestBody;
 import com.example.CRUDOPs.dto.request.UserUpdateRequestBody;
-import com.example.CRUDOPs.dto.response.UserAddResponseBody;
-import com.example.CRUDOPs.dto.response.UserDeletionResponseBody;
-import com.example.CRUDOPs.dto.response.UserListResponseBody;
-import com.example.CRUDOPs.dto.response.UserUpdateResponseBody;
+import com.example.CRUDOPs.dto.response.*;
 import com.example.CRUDOPs.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -87,6 +84,25 @@ public class MemberServiceImpl implements MemberService {
             UserUpdateResponseBody failedUpdateResponse = new UserUpdateResponseBody();
             failedUpdateResponse.setMessage("The given ID does not exist.");
             return failedUpdateResponse;
+        }
+    }
+
+    public UserFetchResponseBody fetchUser(String id){
+        Optional<LibraryMember> existingLibraryMemberOptional = memberDao.findById(id);
+        if(existingLibraryMemberOptional.isPresent()){
+            LibraryMember libraryMember = existingLibraryMemberOptional.get();
+            LibraryMemberDTO libraryMemberDTO = new LibraryMemberDTO();
+            libraryMemberDTO.setId(libraryMember.getId());
+            libraryMemberDTO.setName(libraryMember.getName());
+            libraryMemberDTO.setContactNumber(libraryMember.getContactNumber());
+
+            UserFetchResponseBody userFetchResponseBody = new UserFetchResponseBody();
+            userFetchResponseBody.setUser(libraryMemberDTO);
+            return userFetchResponseBody;
+        } else {
+            UserFetchResponseBody failedFetch = new UserFetchResponseBody();
+            failedFetch.setMessage("Fetch failed since given ID does not exist.");
+            return failedFetch;
         }
     }
 }

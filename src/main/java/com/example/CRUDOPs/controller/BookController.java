@@ -36,4 +36,9 @@ public class BookController {
     public BookUpdateResponseBody updateBook(@RequestBody BookUpdateRequestBody bookUpdateRequestBody){
         return bookService.updateBook(bookUpdateRequestBody);
     }
+
+    @GetMapping("fetch/{id}")
+    public BookFetchResponseBody fetchBook(@PathVariable String id){
+        return bookService.fetchBook(id);
+    }
 }

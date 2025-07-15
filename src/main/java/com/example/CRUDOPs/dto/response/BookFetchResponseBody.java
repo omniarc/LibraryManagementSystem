@@ -13,5 +13,6 @@ import lombok.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookFetchResponseBody {
+    public String message;
     private BookDTO book;
 }

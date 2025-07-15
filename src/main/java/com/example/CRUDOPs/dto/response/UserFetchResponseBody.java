@@ -17,4 +17,5 @@ import lombok.*;
 public class UserFetchResponseBody {
     private LibraryMemberDTO user;
     private AddressDetailsDTO address;
+    private String message;
 }

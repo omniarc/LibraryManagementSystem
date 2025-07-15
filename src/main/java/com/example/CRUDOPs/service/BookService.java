@@ -9,4 +9,5 @@ public interface BookService {
     public BookAddResponseBody addBook(BookAddRequestBody bookAddRequestBody);
     public BookDeletionResponseBody deleteBook(String id);
     public BookUpdateResponseBody updateBook(BookUpdateRequestBody bookUpdateRequestBody);
+    public BookFetchResponseBody fetchBook(String id);
 }
