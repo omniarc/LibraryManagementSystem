@@ -10,7 +10,10 @@ import lombok.*;
 @Setter
 public class BorrowHistoryDTO {
     private String id;
-    private Integer borrowedDate;
-    private Integer dueDate;
-    private Integer returnDate;
+    private String borrowedDate;
+    private String dueDate;
+    private String returnDate;
+    private String bookId;
+    private String userId;
+
 }
