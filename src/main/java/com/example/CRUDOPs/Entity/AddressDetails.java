@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddressDetails extends BaseEntity {
+public class AddressDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")

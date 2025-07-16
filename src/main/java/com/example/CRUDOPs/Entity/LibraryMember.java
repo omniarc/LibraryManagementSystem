@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "library_member")
-public class LibraryMember extends BaseEntity {
+public class LibraryMember {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")

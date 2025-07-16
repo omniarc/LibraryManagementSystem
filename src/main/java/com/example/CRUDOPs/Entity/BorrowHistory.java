@@ -21,6 +21,11 @@ public class BorrowHistory extends BaseEntity {
     private Integer returnDate;
     @Column(name = "book_id")
     private String bookId;
+    @Column(name = "is_active")
+    private boolean isActive;
+
+    @Column(name = "is_Deleted")
+    private boolean isDeleted;
 //    @OneToOne(targetEntity = Book.class)
 
     @ManyToOne(targetEntity = LibraryMember.class)
