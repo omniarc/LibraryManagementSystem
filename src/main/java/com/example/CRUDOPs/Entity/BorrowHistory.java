@@ -14,19 +14,24 @@ public class BorrowHistory extends BaseEntity {
     @Column(name = "id")
     private String id;
     @Column(name = "borrowed_date")
-    private Integer borrowedDate;
+    private String borrowedDate;
     @Column(name = "due_date")
-    private Integer dueDate;
+    private String dueDate;
     @Column(name = "return_date")
-    private Integer returnDate;
-    @Column(name = "book_id")
-    private String bookId;
+    private String returnDate;
+//    @Column(name = "book_id")
+//    private String bookId;
     @Column(name = "is_active")
     private boolean isActive;
 
     @Column(name = "is_Deleted")
     private boolean isDeleted;
 //    @OneToOne(targetEntity = Book.class)
+
+    @OneToOne(targetEntity = Book.class)
+    @MapsId
+    @JoinColumn(name = "book_id", referencedColumnName = "id")
+    private Book book;
 
     @ManyToOne(targetEntity = LibraryMember.class)
     @JoinColumn(name = "library_member_id", referencedColumnName = "id")

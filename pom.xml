@@ -21,20 +21,25 @@
 		<developer/>
 	</developers>
 	<scm>
+<!--		SCM is Source control management.-->
 		<connection/>
 		<developerConnection/>
 		<tag/>
 		<url/>
 	</scm>
+
+<!--	MAJOR FIELD HERE. DEPENDENCIES GO IN HERE	  -->
 	<properties>
 		<java.version>24</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
+<!--			Java Persistence API dependency-->
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
+<!--			Dependency helpful for building web apps along with RESTful services.-->
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
@@ -56,6 +61,8 @@
 		</dependency>
 	</dependencies>
 
+
+<!--	ANOTHER MAJOR FIELD. PLUGINS GO IN HERE	   -->
 	<build>
 		<plugins>
 			<plugin>

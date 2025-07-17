@@ -27,7 +27,7 @@ public class Book {
     //@Builder.Default
     private boolean isBorrowed;
 
-    @OneToOne(targetEntity = BorrowHistory.class)
+    @OneToOne(mappedBy = "book", targetEntity = BorrowHistory.class)
     @JoinColumn(name = "id", referencedColumnName = "book_id")
     private BorrowHistory borrowHistory;
 

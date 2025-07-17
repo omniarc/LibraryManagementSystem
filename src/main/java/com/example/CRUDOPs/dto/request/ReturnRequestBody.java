@@ -12,7 +12,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReturnRequestBody {
-    private BorrowHistoryDTO borrowHistoryDTO;
-    private BookDTO bookDTO;
-    private BaseEntityDTO baseEntityDTO;
+    private String bookId;
+    private String libraryMemberId;
 }
