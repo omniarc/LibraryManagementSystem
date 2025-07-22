@@ -25,11 +25,10 @@ public class Book {
     private String publishedYear;
     @Column(name = "is_borrowed")
     //@Builder.Default
-    private boolean isBorrowed;
+    private Boolean isBorrowed = false; //Default for new books, will be changed if borrowed.
 
-    @OneToOne(mappedBy = "book", targetEntity = BorrowHistory.class)
-    @JoinColumn(name = "id", referencedColumnName = "book_id")
-    private BorrowHistory borrowHistory;
+    @OneToOne(mappedBy = "book", targetEntity = BorrowReturnHistory.class)
+    private BorrowReturnHistory borrowReturnHistory;
 
     @ManyToOne(targetEntity = LibraryMember.class)
     @JoinColumn(name = "library_member_id", referencedColumnName = "id")

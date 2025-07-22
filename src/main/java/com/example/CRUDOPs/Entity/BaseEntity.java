@@ -27,22 +27,22 @@ import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 @AllArgsConstructor
 public class BaseEntity {
 
-    @Column(columnDefinition = "Boolean default is true.")
-    private Boolean isActive = true;
+    @Column(name = "is_active")
+    private Boolean isActive;
 
-    @Column(columnDefinition = "Boolean default is false.")
-    private Boolean isDeleted = false;
+    @Column(name = "is_deleted")
+    private Boolean isDeleted;
 
-    @CreatedDate
-    @Column(columnDefinition = "Timestamp", updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date createdAt;
-
-    @LastModifiedDate
-    @Column(columnDefinition = "Timestamp of updation.")
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date updatedAt;
+//    @CreatedDate
+//    @Column(columnDefinition = "Timestamp", updatable = false)
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+//    private Date createdAt;
+//
+//    @LastModifiedDate
+//    @Column(columnDefinition = "Timestamp of updation.")
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+//    private Date updatedAt;
 
 }

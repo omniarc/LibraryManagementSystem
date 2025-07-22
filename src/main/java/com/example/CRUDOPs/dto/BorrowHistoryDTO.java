@@ -14,6 +14,6 @@ public class BorrowHistoryDTO {
     private String dueDate;
     private String returnDate;
     private String bookId;
-    private String userId;
+    private String libraryMemberId;
 
 }

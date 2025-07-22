@@ -14,6 +14,6 @@ import java.util.Date;
 public class BaseEntityDTO {
     private boolean isActive;
     private Boolean isDeleted;
-    private Date createdAt;
-    private Date updatedAt;
+//    private Date createdAt;
+//    private Date updatedAt;
 }

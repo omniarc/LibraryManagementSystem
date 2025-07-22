@@ -25,8 +25,8 @@ public class LibraryMember {
     @OneToMany(mappedBy = "libraryMember", targetEntity = Book.class)
     private List<Book> books;
 
-    @OneToMany(mappedBy = "libraryMember", targetEntity = BorrowHistory.class)
-    private List<BorrowHistory> borrowHistories;
+    @OneToMany(mappedBy = "libraryMember", targetEntity = BorrowReturnHistory.class)
+    private List<BorrowReturnHistory> borrowHistories;
 
 
 

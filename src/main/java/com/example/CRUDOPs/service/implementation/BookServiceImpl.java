@@ -24,7 +24,7 @@ public class BookServiceImpl implements BookService {
 
         return mapToBookDTO(allBooks);
     }
-
+//EntityMapper - Interface to map from one class to another
     private BookListResponseBody mapToBookDTO(List<Book> books) {
         List<BookDTO> bookDTOList = new ArrayList<>();
 
@@ -35,7 +35,7 @@ public class BookServiceImpl implements BookService {
             bookDTO.setAuthor(book.getAuthor());
             bookDTO.setGenre(book.getGenre());
             bookDTO.setPublishedYear(book.getPublishedYear().toString());
-            bookDTO.setBorrowed(book.isBorrowed());
+            bookDTO.setBorrowed(book.getIsBorrowed());
 
             bookDTOList.add(bookDTO);
 
@@ -94,7 +94,7 @@ public class BookServiceImpl implements BookService {
 
    public BookFetchResponseBody fetchBook(String id){
         Optional<Book> existingBookOptional = bookDao.findById(id);
-        if(existingBookOptional.isPresent()){
+        if(existingBookOptional.isPresent()) {
             Book book = existingBookOptional.get();
             BookDTO bookDTO = new BookDTO();
             bookDTO.setId(book.getId());

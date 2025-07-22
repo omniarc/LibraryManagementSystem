@@ -8,7 +8,7 @@ import lombok.Data;
 @Entity
 @Table(name = "borrow_history")
 
-public class BorrowHistory extends BaseEntity {
+public class BorrowReturnHistory extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
@@ -19,17 +19,8 @@ public class BorrowHistory extends BaseEntity {
     private String dueDate;
     @Column(name = "return_date")
     private String returnDate;
-//    @Column(name = "book_id")
-//    private String bookId;
-    @Column(name = "is_active")
-    private boolean isActive;
-
-    @Column(name = "is_Deleted")
-    private boolean isDeleted;
-//    @OneToOne(targetEntity = Book.class)
 
     @OneToOne(targetEntity = Book.class)
-    @MapsId
     @JoinColumn(name = "book_id", referencedColumnName = "id")
     private Book book;
 
